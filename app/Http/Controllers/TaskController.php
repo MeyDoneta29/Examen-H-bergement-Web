@@ -69,7 +69,7 @@ class TaskController extends Controller
     public function toggle(Task $task)
     {
         $this->authorize('update', $task);
-        $task->update(['completed' => !$task->completed]);
+        $task->update(['is_completed' => !$task->is_completed]);
 
         return redirect()->route('tasks.index')
             ->with('success', 'Statut mis à jour!');
